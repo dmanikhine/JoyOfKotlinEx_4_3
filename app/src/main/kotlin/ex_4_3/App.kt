@@ -12,15 +12,15 @@ class App {
         }
 }
 
-fun fib(x: Int): BigInteger {
+fun fib(n: Int): BigInteger {
     tailrec
-    fun fib(val1: BigInteger, val2: BigInteger, x: BigInteger): BigInteger =
+    fun fib(nMinus1: BigInteger, nMinus2:BigInteger, n: BigInteger): BigInteger =
         when {
-            (x == BigInteger.ZERO) -> BigInteger.ONE
-            (x == BigInteger.ONE) -> val1 + val2
-            else -> fib(val2, val1 + val2, x - BigInteger.ONE)
+            (n == BigInteger.ZERO) -> BigInteger.ONE
+            (n == BigInteger.ONE) -> nMinus1 + nMinus2
+            else -> fib(nMinus1+nMinus2, nMinus1, n - BigInteger.ONE)
         }
-    return fib(BigInteger.ZERO, BigInteger.ONE, BigInteger.valueOf(x.toLong()))
+    return fib(BigInteger.ONE, BigInteger.ZERO, BigInteger.valueOf(n.toLong()))
 }
 
 
